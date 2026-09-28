@@ -1,48 +1,37 @@
-/* =========================================
-   SHINN WEBSITE
-========================================= */
-
+"use strict";
 
 /* =========================
    MOBILE MENU
 ========================= */
 
-const menuButton =
-    document.getElementById("menuButton");
-
-const navMenu =
-    document.getElementById("navMenu");
-
+const menuButton = document.getElementById("menuButton");
+const navMenu = document.getElementById("navMenu");
 
 if (menuButton && navMenu) {
 
-    menuButton.addEventListener(
-        "click",
-        () => {
+    menuButton.addEventListener("click", function () {
 
-            navMenu.classList.toggle("active");
+        navMenu.classList.toggle("active");
 
+        if (navMenu.classList.contains("active")) {
+            menuButton.textContent = "✕";
+        } else {
+            menuButton.textContent = "☰";
         }
-    );
 
+    });
 
-    navMenu
-        .querySelectorAll("a")
-        .forEach(link => {
+    document.querySelectorAll("#navMenu a").forEach(function (link) {
 
-            link.addEventListener(
-                "click",
-                () => {
+        link.addEventListener("click", function () {
 
-                    navMenu.classList.remove(
-                        "active"
-                    );
+            navMenu.classList.remove("active");
 
-                }
-            );
+            menuButton.textContent = "☰";
 
         });
 
+    });
 }
 
 
@@ -50,13 +39,11 @@ if (menuButton && navMenu) {
    CURRENT YEAR
 ========================= */
 
-const year =
-    document.getElementById("year");
+const yearElement = document.getElementById("year");
 
+if (yearElement) {
 
-if (year) {
-
-    year.textContent =
+    yearElement.textContent =
         new Date().getFullYear();
 
 }
@@ -69,22 +56,17 @@ if (year) {
 const revealElements =
     document.querySelectorAll(".reveal");
 
-
-const revealObserver =
+const observer =
     new IntersectionObserver(
-        entries => {
+        function (entries) {
 
-            entries.forEach(entry => {
+            entries.forEach(function (entry) {
 
                 if (entry.isIntersecting) {
 
-                    entry.target.classList.add(
-                        "show"
-                    );
+                    entry.target.classList.add("show");
 
-                    revealObserver.unobserve(
-                        entry.target
-                    );
+                    observer.unobserve(entry.target);
 
                 }
 
@@ -96,17 +78,16 @@ const revealObserver =
         }
     );
 
+revealElements.forEach(function (element) {
 
-revealElements.forEach(element => {
-
-    revealObserver.observe(element);
+    observer.observe(element);
 
 });
 
 
 /* =========================
-   SHINN BACKGROUND MUSIC
-========================================= */
+   BACKGROUND MUSIC
+========================= */
 
 const bgMusic =
     document.getElementById("bgMusic");
@@ -114,17 +95,18 @@ const bgMusic =
 const musicButton =
     document.getElementById("musicButton");
 
-
 let musicStarted = false;
 
 
-/*
-    Hàm phát nhạc
-*/
+/* Start music */
 
 async function startMusic() {
 
-    if (!bgMusic || musicStarted) {
+    if (!bgMusic) {
+        return;
+    }
+
+    if (musicStarted) {
         return;
     }
 
@@ -145,15 +127,10 @@ async function startMusic() {
 
         removeMusicListeners();
 
-        console.log(
-            "Shinn music started"
-        );
-
     } catch (error) {
 
         console.log(
-            "Safari đang chặn autoplay:",
-            error
+            "Autoplay bị trình duyệt chặn. Chờ người dùng tương tác."
         );
 
     }
@@ -161,9 +138,7 @@ async function startMusic() {
 }
 
 
-/*
-    Xóa listener sau khi nhạc đã chạy
-*/
+/* Remove first interaction listeners */
 
 function removeMusicListeners() {
 
@@ -185,17 +160,12 @@ function removeMusicListeners() {
 }
 
 
-/*
-    Thử tự phát ngay khi website mở
-*/
+/* Try autoplay */
 
 startMusic();
 
 
-/*
-    iPhone/Safari chặn autoplay:
-    lần chạm đầu tiên sẽ tự bật nhạc
-*/
+/* iPhone/Safari fallback */
 
 document.addEventListener(
     "click",
@@ -205,7 +175,6 @@ document.addEventListener(
     }
 );
 
-
 document.addEventListener(
     "touchstart",
     startMusic,
@@ -213,7 +182,6 @@ document.addEventListener(
         passive: true
     }
 );
-
 
 document.addEventListener(
     "pointerdown",
@@ -232,20 +200,16 @@ if (musicButton) {
 
     musicButton.addEventListener(
         "click",
-        async event => {
-
-            /*
-                Không để click nút
-                kích hoạt startMusic 2 lần
-            */
+        async function (event) {
 
             event.stopPropagation();
-
 
             if (!bgMusic) {
                 return;
             }
 
+
+            /* PAUSED → PLAY */
 
             if (bgMusic.paused) {
 
@@ -265,13 +229,16 @@ if (musicButton) {
                 } catch (error) {
 
                     console.log(
-                        "Không thể phát nhạc:",
-                        error
+                        "Không thể phát nhạc."
                     );
 
                 }
 
-            } else {
+            }
+
+            /* PLAYING → PAUSE */
+
+            else {
 
                 bgMusic.pause();
 
@@ -289,9 +256,69 @@ if (musicButton) {
 
 
 /* =========================
-   LOG
+   MUSIC ERROR CHECK
+========================= */
+
+if (bgMusic) {
+
+    bgMusic.addEventListener(
+        "error",
+        function () {
+
+            console.log(
+                "Không tìm thấy ShinnThieuu.MP4"
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================
+   SMOOTH ANCHOR
+========================= */
+
+document.querySelectorAll(
+    'a[href^="#"]'
+).forEach(function (link) {
+
+    link.addEventListener(
+        "click",
+        function (event) {
+
+            const targetId =
+                this.getAttribute("href");
+
+            const target =
+                document.querySelector(targetId);
+
+            if (!target) {
+                return;
+            }
+
+            event.preventDefault();
+
+            target.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        }
+    );
+
+});
+
+
+/* =========================
+   CONSOLE
 ========================= */
 
 console.log(
-    "Shinn website loaded."
+    "%cShinn Website",
+    "font-size:20px;font-weight:bold;"
+);
+
+console.log(
+    "Website loaded successfully."
 );
