@@ -3,28 +3,39 @@
 <head>
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
 
-    <meta name="theme-color" content="#050505">
+    <title>Shinn — Official</title>
 
     <meta
         name="description"
-        content="Shinn — Official Website"
+        content="Shinn — Official Website. Repository, projects, downloads and social links."
     >
 
-    <!-- Website icon -->
+    <!-- =========================
+         FAVICON / APP ICON
+    ========================== -->
+
     <link
         rel="icon"
-        type="image/png"
-        href="favicon.png"
+        type="image/jpeg"
+        href="https://raw.githubusercontent.com/ShinnCheatCode/ShinnThieuu/main/quality_restoration_20260929022115356.jpeg"
     >
 
     <link
         rel="apple-touch-icon"
-        href="favicon.png"
+        href="https://raw.githubusercontent.com/ShinnCheatCode/ShinnThieuu/main/quality_restoration_20260929022115356.jpeg"
     >
 
-    <!-- Social preview -->
+    <!-- =========================
+         OPEN GRAPH
+    ========================== -->
+
+    <meta property="og:type" content="website">
+
     <meta
         property="og:title"
         content="Shinn — Official"
@@ -32,17 +43,17 @@
 
     <meta
         property="og:description"
-        content="Official website of Shinn"
+        content="Official website of Shinn."
     >
 
     <meta
         property="og:image"
-        content="https://shinncheatcode.github.io/ShinnThieuu/og-image.png"
+        content="https://raw.githubusercontent.com/ShinnCheatCode/ShinnThieuu/main/quality_restoration_20260929022115356.jpeg"
     >
 
     <meta
-        property="og:type"
-        content="website"
+        property="og:image:alt"
+        content="Shinn Official"
     >
 
     <meta
@@ -50,23 +61,485 @@
         content="https://shinncheatcode.github.io/ShinnThieuu/"
     >
 
-    <title>Shinn — Official</title>
+    <!-- =========================
+         TWITTER CARD
+    ========================== -->
+
+    <meta
+        name="twitter:card"
+        content="summary_large_image"
+    >
+
+    <meta
+        name="twitter:title"
+        content="Shinn — Official"
+    >
+
+    <meta
+        name="twitter:description"
+        content="Official website of Shinn."
+    >
+
+    <meta
+        name="twitter:image"
+        content="https://raw.githubusercontent.com/ShinnCheatCode/ShinnThieuu/main/quality_restoration_20260929022115356.jpeg"
+    >
+
+    <!-- CSS -->
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Background -->
-    <div class="background-grid"></div>
+    <!-- =========================
+         BACKGROUND
+    ========================== -->
 
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-
+    <div class="background">
+        <div class="grid"></div>
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
 
     <!-- =========================
-         BACKGROUND MUSIC
+         NAVBAR
+    ========================== -->
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+            <a href="#home" class="logo">
+                <img
+                    src="https://raw.githubusercontent.com/ShinnCheatCode/ShinnThieuu/main/quality_restoration_20260929022115356.jpeg"
+                    alt="Shinn"
+                >
+
+                <span>SHINN</span>
+            </a>
+
+            <button
+                class="menu-button"
+                id="menuButton"
+                aria-label="Mở menu"
+            >
+                ☰
+            </button>
+
+            <nav id="navMenu">
+
+                <a href="#home">Home</a>
+
+                <a href="#repository">Repository</a>
+
+                <a href="#download">Download</a>
+
+                <a href="#about">About</a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <main>
+
+        <section class="hero section" id="home">
+
+            <div class="hero-content reveal">
+
+                <div class="profile-image">
+
+                    <img
+                        src="https://raw.githubusercontent.com/ShinnCheatCode/ShinnThieuu/main/quality_restoration_20260929022115356.jpeg"
+                        alt="Shinn"
+                    >
+
+                </div>
+
+                <div class="badge">
+                    ✦ OFFICIAL WEBSITE
+                </div>
+
+                <h1>
+                    Welcome to
+                    <span>Shinn</span>
+                </h1>
+
+                <p>
+                    Personal website of Shinn.
+                    <br>
+                    Projects, repositories, downloads and more.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a
+                        class="btn primary"
+                        href="https://github.com/ShinnCheatCode/ShinnThieuu"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <span>⌘</span>
+                        GitHub
+                    </a>
+
+                    <a
+                        class="btn secondary"
+                        href="#repository"
+                    >
+                        Repository
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =========================
+             STATS
+        ========================== -->
+
+        <section class="stats section">
+
+            <div class="stats-container">
+
+                <div class="stat-card reveal">
+
+                    <div class="stat-icon">
+                        ⚡
+                    </div>
+
+                    <strong>Shinn</strong>
+
+                    <span>Developer</span>
+
+                </div>
+
+                <div class="stat-card reveal">
+
+                    <div class="stat-icon">
+                        📦
+                    </div>
+
+                    <strong>Open</strong>
+
+                    <span>Repository</span>
+
+                </div>
+
+                <div class="stat-card reveal">
+
+                    <div class="stat-icon">
+                        🚀
+                    </div>
+
+                    <strong>Active</strong>
+
+                    <span>Projects</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =========================
+             REPOSITORY
+        ========================== -->
+
+        <section
+            class="content-section section"
+            id="repository"
+        >
+
+            <div class="section-heading reveal">
+
+                <span class="section-label">
+                    REPOSITORY
+                </span>
+
+                <h2>
+                    Shinn Repository
+                </h2>
+
+                <p>
+                    Source code, projects and resources from Shinn.
+                </p>
+
+            </div>
+
+            <div class="repo-card reveal">
+
+                <div class="repo-icon">
+                    <img
+                        src="https://raw.githubusercontent.com/ShinnCheatCode/ShinnThieuu/main/quality_restoration_20260929022115356.jpeg"
+                        alt="Shinn"
+                    >
+                </div>
+
+                <div class="repo-info">
+
+                    <h3>
+                        ShinnThieuu
+                    </h3>
+
+                    <p>
+                        Official GitHub repository of Shinn.
+                    </p>
+
+                    <div class="repo-tags">
+
+                        <span>GitHub</span>
+                        <span>Shinn</span>
+                        <span>Project</span>
+
+                    </div>
+
+                </div>
+
+                <a
+                    href="https://github.com/ShinnCheatCode/ShinnThieuu"
+                    target="_blank"
+                    rel="noopener"
+                    class="repo-button"
+                >
+                    Open →
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- =========================
+             DOWNLOAD
+        ========================== -->
+
+        <section
+            class="content-section section"
+            id="download"
+        >
+
+            <div class="section-heading reveal">
+
+                <span class="section-label">
+                    DOWNLOAD
+                </span>
+
+                <h2>
+                    Projects & Files
+                </h2>
+
+                <p>
+                    Access available files and projects from the repository.
+                </p>
+
+            </div>
+
+            <div class="download-grid">
+
+                <div class="download-card reveal">
+
+                    <div class="card-icon">
+                        📦
+                    </div>
+
+                    <h3>
+                        GitHub Repository
+                    </h3>
+
+                    <p>
+                        View source code and project files.
+                    </p>
+
+                    <a
+                        href="https://github.com/ShinnCheatCode/ShinnThieuu"
+                        target="_blank"
+                        rel="noopener"
+                        class="card-button"
+                    >
+                        View Repository
+                    </a>
+
+                </div>
+
+                <div class="download-card reveal">
+
+                    <div class="card-icon">
+                        📁
+                    </div>
+
+                    <h3>
+                        Releases
+                    </h3>
+
+                    <p>
+                        Check available releases and downloadable files.
+                    </p>
+
+                    <a
+                        href="https://github.com/ShinnCheatCode/ShinnThieuu/releases"
+                        target="_blank"
+                        rel="noopener"
+                        class="card-button"
+                    >
+                        Open Releases
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =========================
+             ABOUT
+        ========================== -->
+
+        <section
+            class="content-section section"
+            id="about"
+        >
+
+            <div class="about-card reveal">
+
+                <div class="about-image">
+
+                    <img
+                        src="https://raw.githubusercontent.com/ShinnCheatCode/ShinnThieuu/main/quality_restoration_20260929022115356.jpeg"
+                        alt="Shinn"
+                    >
+
+                </div>
+
+                <div class="about-content">
+
+                    <span class="section-label">
+                        ABOUT
+                    </span>
+
+                    <h2>
+                        About Shinn
+                    </h2>
+
+                    <p>
+                        Welcome to the official Shinn website.
+                        This website is a central place for
+                        projects, repositories, downloads and
+                        social links.
+                    </p>
+
+                    <p>
+                        Everything will be updated here when
+                        new projects and resources become available.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =========================
+             SOCIAL
+        ========================== -->
+
+        <section class="social-section section">
+
+            <div class="section-heading reveal">
+
+                <span class="section-label">
+                    SOCIAL
+                </span>
+
+                <h2>
+                    Connect with Shinn
+                </h2>
+
+            </div>
+
+            <div class="social-grid reveal">
+
+                <a
+                    href="https://www.facebook.com/share/1BuEvykqK4/?mibextid=wwXIfr"
+                    target="_blank"
+                    rel="noopener"
+                    class="social-card facebook"
+                >
+                    <span>f</span>
+                    <div>
+                        <strong>Facebook</strong>
+                        <small>Follow me</small>
+                    </div>
+                </a>
+
+                <a
+                    href="https://t.me/ShinnThieuu"
+                    target="_blank"
+                    rel="noopener"
+                    class="social-card telegram"
+                >
+                    <span>✈</span>
+                    <div>
+                        <strong>Telegram</strong>
+                        <small>@ShinnThieuu</small>
+                    </div>
+                </a>
+
+                <a
+                    href="https://t.me/NgVuMinhHieuu"
+                    target="_blank"
+                    rel="noopener"
+                    class="social-card telegram"
+                >
+                    <span>✈</span>
+                    <div>
+                        <strong>Telegram</strong>
+                        <small>@NgVuMinhHieuu</small>
+                    </div>
+                </a>
+
+                <a
+                    href="https://www.tiktok.com/@._ngvuminhhieuu"
+                    target="_blank"
+                    rel="noopener"
+                    class="social-card tiktok"
+                >
+                    <span>♪</span>
+                    <div>
+                        <strong>TikTok</strong>
+                        <small>@._ngvuminhhieuu</small>
+                    </div>
+                </a>
+
+                <a
+                    href="https://t.me/ShinnCheatShare"
+                    target="_blank"
+                    rel="noopener"
+                    class="social-card share"
+                >
+                    <span>📢</span>
+                    <div>
+                        <strong>Share Group</strong>
+                        <small>ShinnCheatShare</small>
+                    </div>
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- =========================
+         MUSIC
     ========================== -->
 
     <audio
@@ -81,427 +554,6 @@
         >
     </audio>
 
-
-    <!-- =========================
-         NAVBAR
-    ========================== -->
-
-    <header class="navbar">
-
-        <a href="#home" class="logo">
-            SHINN
-        </a>
-
-        <button
-            id="menuButton"
-            class="menu-button"
-            type="button"
-            aria-label="Mở menu"
-        >
-            ☰
-        </button>
-
-        <nav id="navMenu">
-
-            <a href="#home">Home</a>
-
-            <a href="#repository">
-                Repository
-            </a>
-
-            <a href="#download">
-                Download
-            </a>
-
-            <a href="#about">
-                About
-            </a>
-
-        </nav>
-
-    </header>
-
-
-    <!-- =========================
-         MAIN
-    ========================== -->
-
-    <main>
-
-        <!-- HERO -->
-
-        <section
-            id="home"
-            class="hero section"
-        >
-
-            <div class="hero-content reveal">
-
-                <div class="badge">
-                    ✦ SHINN OFFICIAL
-                </div>
-
-                <h1>
-                    Welcome to
-                    <span>Shinn</span>
-                </h1>
-
-                <p>
-                    Personal website of Shinn.
-                    Repository, projects, tools
-                    and downloads.
-                </p>
-
-                <div class="hero-buttons">
-
-                    <a
-                        href="#repository"
-                        class="button primary"
-                    >
-                        Repository
-                    </a>
-
-                    <a
-                        href="#download"
-                        class="button secondary"
-                    >
-                        Download
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- STATS -->
-
-        <section class="stats section">
-
-            <div class="stats-grid">
-
-                <div class="stat-card reveal">
-
-                    <strong>01</strong>
-
-                    <span>
-                        Developer
-                    </span>
-
-                </div>
-
-
-                <div class="stat-card reveal">
-
-                    <strong>24/7</strong>
-
-                    <span>
-                        Online
-                    </span>
-
-                </div>
-
-
-                <div class="stat-card reveal">
-
-                    <strong>∞</strong>
-
-                    <span>
-                        Projects
-                    </span>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- REPOSITORY -->
-
-        <section
-            id="repository"
-            class="content-section section"
-        >
-
-            <div class="section-title reveal">
-
-                <span>
-                    REPOSITORY
-                </span>
-
-                <h2>
-                    Shinn Repository
-                </h2>
-
-                <p>
-                    Source, projects and repository
-                    information.
-                </p>
-
-            </div>
-
-
-            <div class="glass-card reveal">
-
-                <div class="card-icon">
-                    ◈
-                </div>
-
-                <div class="card-content">
-
-                    <h3>
-                        ShinnThieuu
-                    </h3>
-
-                    <p>
-                        Official GitHub repository
-                        of Shinn.
-                    </p>
-
-                    <a
-                        href="https://github.com/ShinnCheatCode/ShinnThieuu"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="card-link"
-                    >
-                        Open GitHub →
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- DOWNLOAD -->
-
-        <section
-            id="download"
-            class="content-section section"
-        >
-
-            <div class="section-title reveal">
-
-                <span>
-                    DOWNLOAD
-                </span>
-
-                <h2>
-                    Downloads
-                </h2>
-
-                <p>
-                    Download the latest files
-                    and releases.
-                </p>
-
-            </div>
-
-
-            <div class="download-grid">
-
-                <div class="glass-card reveal">
-
-                    <div class="card-icon">
-                        ↓
-                    </div>
-
-                    <div class="card-content">
-
-                        <h3>
-                            Latest Release
-                        </h3>
-
-                        <p>
-                            Download the latest
-                            available version.
-                        </p>
-
-                        <a
-                            href="https://github.com/ShinnCheatCode/ShinnThieuu/releases"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="card-link"
-                        >
-                            View Releases →
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-                <div class="glass-card reveal">
-
-                    <div class="card-icon">
-                        ⌘
-                    </div>
-
-                    <div class="card-content">
-
-                        <h3>
-                            GitHub
-                        </h3>
-
-                        <p>
-                            View the complete
-                            repository.
-                        </p>
-
-                        <a
-                            href="https://github.com/ShinnCheatCode/ShinnThieuu"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="card-link"
-                        >
-                            Open Repository →
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ABOUT -->
-
-        <section
-            id="about"
-            class="content-section section"
-        >
-
-            <div class="section-title reveal">
-
-                <span>
-                    ABOUT
-                </span>
-
-                <h2>
-                    About Shinn
-                </h2>
-
-            </div>
-
-
-            <div class="about-card reveal">
-
-                <p>
-                    Welcome to Shinn.
-                    This website is a personal
-                    space for projects,
-                    repositories and updates.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- SOCIAL -->
-
-        <section class="social-section section">
-
-            <div class="section-title reveal">
-
-                <span>
-                    SOCIAL
-                </span>
-
-                <h2>
-                    Connect with Shinn
-                </h2>
-
-            </div>
-
-
-            <div class="social-grid reveal">
-
-                <a
-                    href="https://www.facebook.com/share/1BuEvykqK4/?mibextid=wwXIfr"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="social-button"
-                >
-                    <span>
-                        Facebook
-                    </span>
-
-                    <b>↗</b>
-                </a>
-
-
-                <a
-                    href="https://t.me/ShinnThieuu"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="social-button"
-                >
-                    <span>
-                        Telegram
-                    </span>
-
-                    <b>↗</b>
-                </a>
-
-
-                <a
-                    href="https://t.me/NgVuMinhHieuu"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="social-button"
-                >
-                    <span>
-                        Telegram 2
-                    </span>
-
-                    <b>↗</b>
-                </a>
-
-
-                <a
-                    href="https://www.tiktok.com/@._ngvuminhhieuu"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="social-button"
-                >
-                    <span>
-                        TikTok
-                    </span>
-
-                    <b>↗</b>
-                </a>
-
-
-                <a
-                    href="https://t.me/ShinnCheatShare"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="social-button"
-                >
-                    <span>
-                        Group Share
-                    </span>
-
-                    <b>↗</b>
-                </a>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- =========================
-         MUSIC BUTTON
-    ========================== -->
-
     <button
         id="musicButton"
         class="music-button"
@@ -510,23 +562,32 @@
         🎵 Bật nhạc
     </button>
 
-
-    <!-- FOOTER -->
+    <!-- =========================
+         FOOTER
+    ========================== -->
 
     <footer>
 
         <div class="footer-logo">
-            SHINN
+
+            <img
+                src="https://raw.githubusercontent.com/ShinnCheatCode/ShinnThieuu/main/quality_restoration_20260929022115356.jpeg"
+                alt="Shinn"
+            >
+
+            <span>SHINN</span>
+
         </div>
 
         <p>
-            ©
-            <span id="year"></span>
-            Shinn. All rights reserved.
+            © <span id="year"></span> Shinn. All rights reserved.
+        </p>
+
+        <p class="footer-small">
+            Built with HTML, CSS & JavaScript.
         </p>
 
     </footer>
-
 
     <script src="script.js"></script>
 
