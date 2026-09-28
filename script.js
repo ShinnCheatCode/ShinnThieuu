@@ -1,140 +1,297 @@
 /* =========================================
    SHINN WEBSITE
 ========================================= */
-/* =========================================
+
+
+/* =========================
    MOBILE MENU
-========================================= */
+========================= */
+
 const menuButton =
     document.getElementById("menuButton");
+
 const navMenu =
     document.getElementById("navMenu");
+
+
 if (menuButton && navMenu) {
+
     menuButton.addEventListener(
         "click",
         () => {
+
             navMenu.classList.toggle("active");
+
         }
     );
-}
-/* =========================================
-   CLOSE MENU AFTER CLICK
-========================================= */
-const navLinks =
-    document.querySelectorAll(
-        "#navMenu a"
-    );
-navLinks.forEach(
-    link => {
-        link.addEventListener(
-            "click",
-            () => {
-                navMenu.classList.remove(
-                    "active"
-                );
-            }
-        );
-    }
-);
-/* =========================================
-   CURRENT YEAR
-========================================= */
-const year =
-    document.getElementById("year");
-if (year) {
-    year.textContent =
-        new Date().getFullYear();
-}
-/* =========================================
-   SMOOTH SCROLL
-========================================= */
-document
-    .querySelectorAll(
-        'a[href^="#"]'
-    )
-    .forEach(
-        link => {
+
+
+    navMenu
+        .querySelectorAll("a")
+        .forEach(link => {
+
             link.addEventListener(
                 "click",
-                function(event) {
-                    const target =
-                        document.querySelector(
-                            this.getAttribute("href")
-                        );
-                    if (!target) {
-                        return;
-                    }
-                    event.preventDefault();
-                    target.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start"
-                    });
+                () => {
+
+                    navMenu.classList.remove(
+                        "active"
+                    );
+
                 }
             );
-        }
-    );
-/* =========================================
+
+        });
+
+}
+
+
+/* =========================
+   CURRENT YEAR
+========================= */
+
+const year =
+    document.getElementById("year");
+
+
+if (year) {
+
+    year.textContent =
+        new Date().getFullYear();
+
+}
+
+
+/* =========================
    SCROLL REVEAL
-========================================= */
+========================= */
+
 const revealElements =
-    document.querySelectorAll(
-        ".stat-card, " +
-        ".repository-card, " +
-        ".download-card, " +
-        ".about-card"
-    );
-const observer =
+    document.querySelectorAll(".reveal");
+
+
+const revealObserver =
     new IntersectionObserver(
         entries => {
-            entries.forEach(
-                entry => {
-                    if (
-                        entry.isIntersecting
-                    ) {
-                        entry.target.style.opacity =
-                            "1";
-                        entry.target.style.transform =
-                            "translateY(0)";
-                        observer.unobserve(
-                            entry.target
-                        );
-                    }
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add(
+                        "show"
+                    );
+
+                    revealObserver.unobserve(
+                        entry.target
+                    );
+
                 }
-            );
+
+            });
+
         },
         {
             threshold: 0.12
         }
     );
-revealElements.forEach(
-    element => {
-        element.style.opacity = "0";
-        element.style.transform =
-            "translateY(20px)";
-        element.style.transition =
-            "opacity .7s ease, " +
-            "transform .7s ease";
-        observer.observe(element);
-    }
-);
-/* =========================================
-   CLOSE MENU WHEN CLICK OUTSIDE
+
+
+revealElements.forEach(element => {
+
+    revealObserver.observe(element);
+
+});
+
+
+/* =========================
+   SHINN BACKGROUND MUSIC
 ========================================= */
+
+const bgMusic =
+    document.getElementById("bgMusic");
+
+const musicButton =
+    document.getElementById("musicButton");
+
+
+let musicStarted = false;
+
+
+/*
+    Hàm phát nhạc
+*/
+
+async function startMusic() {
+
+    if (!bgMusic || musicStarted) {
+        return;
+    }
+
+    try {
+
+        bgMusic.volume = 0.45;
+
+        await bgMusic.play();
+
+        musicStarted = true;
+
+        if (musicButton) {
+
+            musicButton.textContent =
+                "🔊 Đang phát";
+
+        }
+
+        removeMusicListeners();
+
+        console.log(
+            "Shinn music started"
+        );
+
+    } catch (error) {
+
+        console.log(
+            "Safari đang chặn autoplay:",
+            error
+        );
+
+    }
+
+}
+
+
+/*
+    Xóa listener sau khi nhạc đã chạy
+*/
+
+function removeMusicListeners() {
+
+    document.removeEventListener(
+        "click",
+        startMusic
+    );
+
+    document.removeEventListener(
+        "touchstart",
+        startMusic
+    );
+
+    document.removeEventListener(
+        "pointerdown",
+        startMusic
+    );
+
+}
+
+
+/*
+    Thử tự phát ngay khi website mở
+*/
+
+startMusic();
+
+
+/*
+    iPhone/Safari chặn autoplay:
+    lần chạm đầu tiên sẽ tự bật nhạc
+*/
+
 document.addEventListener(
     "click",
-    event => {
-        if (
-            navMenu &&
-            menuButton &&
-            navMenu.classList.contains("active")
-        ) {
-            if (
-                !navMenu.contains(event.target) &&
-                !menuButton.contains(event.target)
-            ) {
-                navMenu.classList.remove(
-                    "active"
-                );
-            }
-        }
+    startMusic,
+    {
+        passive: true
     }
+);
+
+
+document.addEventListener(
+    "touchstart",
+    startMusic,
+    {
+        passive: true
+    }
+);
+
+
+document.addEventListener(
+    "pointerdown",
+    startMusic,
+    {
+        passive: true
+    }
+);
+
+
+/* =========================
+   MUSIC BUTTON
+========================= */
+
+if (musicButton) {
+
+    musicButton.addEventListener(
+        "click",
+        async event => {
+
+            /*
+                Không để click nút
+                kích hoạt startMusic 2 lần
+            */
+
+            event.stopPropagation();
+
+
+            if (!bgMusic) {
+                return;
+            }
+
+
+            if (bgMusic.paused) {
+
+                try {
+
+                    bgMusic.volume = 0.45;
+
+                    await bgMusic.play();
+
+                    musicStarted = true;
+
+                    musicButton.textContent =
+                        "🔊 Đang phát";
+
+                    removeMusicListeners();
+
+                } catch (error) {
+
+                    console.log(
+                        "Không thể phát nhạc:",
+                        error
+                    );
+
+                }
+
+            } else {
+
+                bgMusic.pause();
+
+                musicStarted = false;
+
+                musicButton.textContent =
+                    "🎵 Bật nhạc";
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================
+   LOG
+========================= */
+
+console.log(
+    "Shinn website loaded."
 );
